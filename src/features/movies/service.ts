@@ -1,5 +1,5 @@
 import type { MoviesResponse, Movie } from "./types";
-import type { MovieCredits, PersonDetails } from "../persons/types";
+import type { MovieCredits, PersonDetails } from "@/features/persons/types";
 
 export interface DataService {
   getMovies(page: number): Promise<MoviesResponse>;

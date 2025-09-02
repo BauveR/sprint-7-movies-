@@ -1,7 +1,7 @@
-import { http } from "../shared/axios";
-import type { DataService } from "../features/movies/service";
-import type { MoviesResponse, Movie } from "../features/movies/types";
-import type { MovieCredits, PersonDetails } from "../features/persons/types";
+import { http } from "@/shared/axios";
+import type { DataService } from "@/features/movies/service";
+import type { MoviesResponse, Movie } from "@/features/movies/types";
+import type { MovieCredits, PersonDetails } from "@/features/persons/types";
 
 export const tmdbService: DataService = {
   async getMovies(page) {
