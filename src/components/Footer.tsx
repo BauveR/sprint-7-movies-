@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { useAuthUserQuery } from "@/auth/query/authQueries";
+import { useAuthUserQuery } from "@/query/authQueries";
 
 export const Footer = () => {
   const { data: user } = useAuthUserQuery();
 
   return (
-    <footer className="bg-sky-950 p-6 text-white flex flex-col md:flex-row justify-center items-start gap-10">
+    <footer className="bg-orange-950 p-6 text-white flex flex-col md:flex-row justify-center items-start gap-10">
       {/* Logo + saludo */}
       <div className="flex flex-col items-start gap-6">
         <h2 className="font-bold text-2xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-sky-200 to-sky-400">

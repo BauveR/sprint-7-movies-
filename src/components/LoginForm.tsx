@@ -4,7 +4,7 @@ import {
   useGoogleSignInMutation,
   useLoginMutation,
   useAuthUserQuery,
-} from "@/auth/query/authQueries";
+} from "@/query/authQueries";
 import { useEffect } from "react";
 
 export const LoginForm = () => {

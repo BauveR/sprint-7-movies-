@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "@/hooks/useForm";
-import { useRegisterMutation } from "@/auth/query/authQueries";
+import { useRegisterMutation } from "@/query/authQueries";
 import { useState } from "react";
 
 export const RegisterForm = () => {

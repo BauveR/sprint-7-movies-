@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuthUserQuery } from "@/auth/query/authQueries";
+import { useAuthUserQuery } from "@/query/authQueries";
 
 interface ProtectedRouteProps {
   children?: React.ReactNode;
