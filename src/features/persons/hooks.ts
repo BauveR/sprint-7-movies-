@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useDataService } from "@/providers/DataServiceProvider";
+import { useDataService } from "@/providers/DataServiceProvider"; // <-- corregido
 import type { MovieCredits, PersonDetails } from "./types";
 
 export const useMovieCredits = (movieId: number) => {

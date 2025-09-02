@@ -19,11 +19,7 @@ export const MoviesPage = () => {
   }
 
   if (isError) {
-    return (
-      <div className="text-center text-red-500 mt-10">
-        Error: {String(error)}
-      </div>
-    );
+    return <div className="text-center text-red-500 mt-10">Error: {String(error)}</div>;
   }
 
   const totalPages = data?.total_pages ?? 1;
@@ -43,9 +39,7 @@ export const MoviesPage = () => {
         <Link
           to={`/movies/page/${Math.max(1, currentPage - 1)}`}
           className={`px-4 py-2 rounded-lg border ${
-            currentPage <= 1
-              ? "opacity-50 pointer-events-none"
-              : "hover:bg-sky-50"
+            currentPage <= 1 ? "opacity-50 pointer-events-none" : "hover:bg-sky-50"
           }`}
         >
           ← Prev
@@ -56,9 +50,7 @@ export const MoviesPage = () => {
         <Link
           to={`/movies/page/${Math.min(totalPages, currentPage + 1)}`}
           className={`px-4 py-2 rounded-lg border ${
-            currentPage >= totalPages
-              ? "opacity-50 pointer-events-none"
-              : "hover:bg-sky-50"
+            currentPage >= totalPages ? "opacity-50 pointer-events-none" : "hover:bg-sky-50"
           }`}
         >
           Next →

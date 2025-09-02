@@ -8,7 +8,6 @@ export const Cast = ({ movieId }: { movieId: number }) => {
   if (isError) return <pre>Error: {String(error)}</pre>;
 
   const cast: CastMember[] = data?.cast ?? [];
-
   if (!cast.length) return null;
 
   return (

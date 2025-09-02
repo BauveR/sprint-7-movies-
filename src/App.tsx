@@ -1,7 +1,5 @@
-// src/App.tsx
-import { useDataService } from "@/providers/DataServiceProvider";
+import { AppRouter } from "@/router/AppRouter";
 
 export default function App() {
-  const svc = useDataService(); // fallará si no está envuelto
-  return <div>App OK</div>;
+  return <AppRouter />;
 }
