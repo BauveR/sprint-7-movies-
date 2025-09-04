@@ -1,16 +1,17 @@
 import { useState, ChangeEvent } from "react";
 
-type FormState<T> = T & { [key: string]: any };
-
-export function useForm<T extends FormState<T>>(initialState: T) {
+export function useForm<T extends Record<string, unknown>>(initialState: T) {
   const [formState, setFormState] = useState<T>(initialState);
 
+  // Cambiar por nombre/valor tipados
+  const onFieldChange = <K extends keyof T>(name: K, value: T[K]) => {
+    setFormState((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Adaptador para eventos <input/textarea>
   const onInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormState((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    onFieldChange(name as keyof T, value as T[keyof T]);
   };
 
   const resetForm = () => setFormState(initialState);
@@ -19,6 +20,7 @@ export function useForm<T extends FormState<T>>(initialState: T) {
     ...formState,
     formState,
     onInputChange,
+    onFieldChange,   // <- disponible si quieres actualizar programáticamente
     resetForm,
     setFormState,
   };
