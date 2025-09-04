@@ -1,7 +1,6 @@
-// src/app/providers/DataServiceProvider.tsx
 import { createContext, useContext, PropsWithChildren } from "react";
 import type { DataService } from "@/features/movies/service";
-import { tmdbService } from "@/infra/tmdbService"; // o "@/infrastructure/tmdbService" si esa es tu carpeta
+import { tmdbService } from "@/infra/tmdbService";
 
 const Ctx = createContext<DataService | null>(null);
 
