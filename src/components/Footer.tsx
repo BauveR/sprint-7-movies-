@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import { useAuthUserQuery } from "@/query/authQueries";
+import logo from "@/assets/tmbd logo.svg";
 
 export const Footer = () => {
   const { data: user } = useAuthUserQuery();
 
   return (
-    <footer className="bg-orange-950 p-6 text-white flex flex-col md:flex-row justify-center items-start gap-10">
+    <footer className="bg-slate-900 p-6 text-white flex flex-col md:flex-row justify-center items-start gap-10">
       {/* Logo + saludo */}
       <div className="flex flex-col items-start gap-6">
         <h2 className="font-bold text-2xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-sky-200 to-sky-400">
-          MovieDB
+          <span className="text-transparent"> </span>
+          <img src={logo} alt="TMDB Logo" className="w-30 h-8" />
         </h2>
         {user && (
           <p className="text-md font-bold bg-white py-2 px-4 rounded-lg text-sky-500">

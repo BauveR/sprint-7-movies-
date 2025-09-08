@@ -6,7 +6,18 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
   return (
     <div
       onClick={() => navigate(`/movies/${movie.id}`)}
-      className="flex flex-col items-center w-64 p-4 bg-white rounded-lg shadow-md hover:cursor-pointer hover:shadow-lg transition-shadow duration-300"
+      className="flex flex-col items-center w-64 p-4  bg-white/10 
+        backdrop-blur-md
+        border border-white/30
+        text-blue-100
+        font-semibold 
+        py-3 px-6 
+        rounded-2xl
+        shadow-xl
+        hover:bg-white/20 
+        hover:backdrop-blur-lg 
+        transition-all
+        duration-300"
     >
       {movie.poster_path && (
         <img

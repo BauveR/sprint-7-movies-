@@ -4,6 +4,7 @@ import {
   useAuthUserQuery,
   useLogoutMutation,
 } from "@/query/authQueries";
+import logo from "@/assets/tmbd logo.svg";
 
 export const Header = () => {
   const { data: user } = useAuthUserQuery();
@@ -12,14 +13,11 @@ export const Header = () => {
   const { mutate: logout, isPending } = useLogoutMutation();
 
   return (
-    <header className="bg-orange-900 p-6 text-white flex justify-between items-center">
+    <header className="bg-slate-900 p-6 text-white flex justify-between items-center">
       {/* Logo + Nav */}
       <div className="flex items-center gap-6">
-        <Link
-          to="/"
-          className="font-bold text-2xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-pink-100"
-        >
-          Movie
+      <Link to="/">
+          <img src={logo} alt="TMDB Logo" className="w-30 h-8" /> 
         </Link>
         <NavBar />
       </div>
