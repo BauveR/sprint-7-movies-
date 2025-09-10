@@ -3,7 +3,7 @@ import SearchBar from "@/components/SearchBar";
 type Props = {
   title?: string;
   subtitle?: string;
-  backgroundUrl?: string;     // si no llega, usa un color/gradiente
+  backgroundUrl?: string;   
   onSearch: (q: string) => void;
 };
 

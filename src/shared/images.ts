@@ -1,4 +1,3 @@
-// Constructores de URL TMDB (sinpegarte a /configuration)
 const BASE_IMG = "https://image.tmdb.org/t/p";
 
 export const img = {

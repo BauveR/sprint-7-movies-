@@ -5,17 +5,15 @@ import { HomePage } from "@/pages/HomePage";
 import { MoviesPage } from "@/pages/MoviesPage";
 import { MovieDetailPage } from "@/pages/MovieDetailPage";
 import { PersonDetailPage } from "@/pages/PersonDetailPage";
-import { LoginPage } from "@/pages/LoginPage";      // <-- corrige esta línea
-import { RegisterPage } from "@/pages/RegisterPage"; // <-- y esta
+import { LoginPage } from "@/pages/LoginPage";      
+import { RegisterPage } from "@/pages/RegisterPage"; 
 import { ProtectedRoute } from "@/router/ProtectedRoute";
-import { FirebaseSmokeTest } from "@/components/FirebaseSmokeTest";
 
 
 export const AppRouter = () => {
   return (
     <>
       <Header />
-      <FirebaseSmokeTest />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route element={<ProtectedRoute />}>

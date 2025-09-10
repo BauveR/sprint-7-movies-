@@ -1,4 +1,4 @@
-// src/types/media.ts
+
 export type MediaType = "movie" | "tv" | "person";
 
 export interface MediaItem {

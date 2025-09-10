@@ -20,7 +20,7 @@ export function useForm<T extends Record<string, unknown>>(initialState: T) {
     ...formState,
     formState,
     onInputChange,
-    onFieldChange,   // <- disponible si quieres actualizar programáticamente
+    onFieldChange,   
     resetForm,
     setFormState,
   };
