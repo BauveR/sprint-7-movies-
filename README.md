@@ -5,7 +5,7 @@ This is a web application built with **React**, **TypeScript**, **TailwindCSS**,
 
 ## 🚀 Demo
 
-![App Demo](./public/app-prewiew.gif)
+![App Demo](./public/app%20preview.gif) 
 
 ---
 
