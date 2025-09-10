@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ENV } from "@/shared/env";
 
-// 🔧 Normaliza el Bearer (acepta con o sin "Bearer ")
+
 function normalizeBearer(raw: string) {
   const t = (raw || "").trim().replace(/^"+|"+$/g, "");
   return t.startsWith("Bearer ") ? t : t ? `Bearer ${t}` : "";
@@ -9,7 +9,7 @@ function normalizeBearer(raw: string) {
 
 const AUTH = normalizeBearer(ENV.TMDB_BEARER);
 
-// Valida formato JWT (v4)
+
 const isJwt =
   /^Bearer\s+[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_]+$/.test(AUTH);
 
@@ -26,16 +26,16 @@ if (import.meta.env.DEV) {
   }
 }
 
-// 🚀 Cliente Axios
+
 export const http = axios.create({
   baseURL: ENV.TMDB_URL, // https://api.themoviedb.org/3
   headers: {
     accept: "application/json",
-    ...(isJwt ? { Authorization: AUTH } : {}), // solo setea Bearer si es válido
+    ...(isJwt ? { Authorization: AUTH } : {}), 
   },
 });
 
-// Interceptor: si no hay Bearer válido, añade api_key v3 como query param
+
 http.interceptors.request.use((config) => {
   if (!isJwt && ENV.TMDB_API_KEY) {
     config.params = { ...(config.params || {}), api_key: ENV.TMDB_API_KEY };
@@ -43,7 +43,7 @@ http.interceptors.request.use((config) => {
   return config;
 });
 
-// Interceptor de respuesta para debug
+
 http.interceptors.response.use(
   (r) => r,
   (err) => {

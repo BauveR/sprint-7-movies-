@@ -8,8 +8,7 @@ function Card({ item }: { item: MediaItem }) {
   const poster = item.poster_path || item.profile_path;
   const to = item.media_type === "person"
     ? `/persons/${item.id}`
-    : `/movies/${item.id}`; // si es TV y no tienes page de TV, mantén movies o ajusta
-
+    : `/movies/${item.id}`; 
   return (
     <button
       onClick={() => navigate(to)}
@@ -30,7 +29,8 @@ function Card({ item }: { item: MediaItem }) {
 export function MediaRail({ items }: { items: MediaItem[] }) {
   return (
     <div className="relative">
-      {/* Carrusel */}
+
+
       <div className="overflow-x-auto">
         <div className="flex gap-4 pr-4">
           {items.map((i) => (
@@ -39,10 +39,12 @@ export function MediaRail({ items }: { items: MediaItem[] }) {
         </div>
       </div>
 
-      {/* Degradado izquierda */}
+
+
       <div className="pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-white via-white/80 to-transparent" />
 
-      {/* Degradado derecha */}
+
+
       <div className="pointer-events-none absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-white via-wite/80 to-transparent" />
     </div>
   );

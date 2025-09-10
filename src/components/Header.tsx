@@ -14,7 +14,7 @@ export const Header = () => {
 
   return (
     <header className="bg-slate-900 p-6 text-white flex justify-between items-center">
-      {/* Logo + Nav */}
+
       <div className="flex items-center gap-6">
       <Link to="/">
           <img src={logo} alt="TMDB Logo" className="w-30 h-8" /> 
@@ -22,7 +22,7 @@ export const Header = () => {
         <NavBar />
       </div>
 
-      {/* Login / Logout */}
+     
       <div>
         {!isLogged && (
           <Link

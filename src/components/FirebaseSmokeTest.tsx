@@ -1,4 +1,4 @@
-// src/components/FirebaseSmokeTest.tsx
+
 import { useEffect } from "react";
 import { fetchSignInMethodsForEmail } from "firebase/auth";
 import { auth } from "@/config/firebase";
@@ -14,5 +14,5 @@ export const FirebaseSmokeTest = () => {
       });
   }, []);
 
-  return null; // no renderiza nada
+  return null; 
 };

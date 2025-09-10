@@ -9,9 +9,7 @@ import { onAuthStateChanged, signOut, type User } from "firebase/auth";
 import type { FirebaseError } from "firebase/app";
 import { auth } from "../config/firebase";
 
-/**
- * Hook: usuario actual (escucha 1 vez y se desuscribe para evitar fugas)
- */
+
 export const useAuthUserQuery = () =>
   useQuery<User | null>({
     queryKey: ["authUser"],
@@ -19,17 +17,14 @@ export const useAuthUserQuery = () =>
       new Promise<User | null>((resolve) => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
           resolve(user);
-          unsubscribe(); // ✅ evita fugas
+          unsubscribe(); 
         });
       }),
     staleTime: 5 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
 
-/**
- * Hook: login con email/password
- * - Tipado para que `error.message` esté disponible en los componentes
- */
+
 export const useLoginMutation = () => {
   const queryClient = useQueryClient();
   return useMutation<User, FirebaseError, { email: string; password: string }>({
@@ -46,9 +41,7 @@ export const useLoginMutation = () => {
   });
 };
 
-/**
- * Hook: login con Google
- */
+
 export const useGoogleSignInMutation = () => {
   const queryClient = useQueryClient();
   return useMutation<User, FirebaseError, void>({
@@ -62,9 +55,7 @@ export const useGoogleSignInMutation = () => {
   });
 };
 
-/**
- * Hook: register con email/password
- */
+
 export const useRegisterMutation = (options?: { onSuccess?: (data: User) => void }) => {
   const queryClient = useQueryClient();
   return useMutation<User, FirebaseError, { email: string; password: string }>({
@@ -82,9 +73,7 @@ export const useRegisterMutation = (options?: { onSuccess?: (data: User) => void
   });
 };
 
-/**
- * Hook: logout
- */
+
 export const useLogoutMutation = () => {
   const queryClient = useQueryClient();
   return useMutation<void, FirebaseError, void>({

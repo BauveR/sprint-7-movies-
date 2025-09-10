@@ -1,17 +1,14 @@
-// src/infra/__tests__/tmdbService.test.ts
+
 import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
 
-// 1) Crear el mock "hoisted" ANTES del vi.mock
 const { getMock } = vi.hoisted(() => ({
   getMock: vi.fn(),
 }));
 
-// 2) Mockear el módulo que importa tmdbService
 vi.mock("@/shared/axios", () => ({
   http: { get: getMock },
 }));
 
-// 3) Importar el SUT DESPUÉS del mock
 import { tmdbService } from "@/infra/tmdbService";
 
 beforeEach(() => {
@@ -112,7 +109,7 @@ describe("tmdbService", () => {
     const fake = { results: [], page: 1, total_pages: 1, total_results: 0 };
     getMock.mockResolvedValueOnce({ data: fake });
 
-    const res = await tmdbService.discoverTV(); // sin params
+    const res = await tmdbService.discoverTV(); 
 
     expect(getMock).toHaveBeenCalledWith("discover/tv", {
       params: { language: "es-ES" },

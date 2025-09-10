@@ -7,7 +7,7 @@ export const Footer = () => {
 
   return (
     <footer className="bg-slate-900 p-6 text-white flex flex-col md:flex-row justify-center items-start gap-10">
-      {/* Logo + saludo */}
+
       <div className="flex flex-col items-start gap-6">
         <h2 className="font-bold text-2xl uppercase bg-clip-text text-transparent bg-gradient-to-r from-sky-200 to-sky-400">
           <span className="text-transparent"> </span>
@@ -20,7 +20,6 @@ export const Footer = () => {
         )}
       </div>
 
-      {/* Links */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 w-full">
         <div className="flex flex-col gap-2">
           <h3 className="uppercase text-lg font-bold">The Basics</h3>

@@ -10,23 +10,19 @@ import { useNavigate } from "react-router-dom";
 export const HomePage = () => {
   const navigate = useNavigate();
 
-  // --- HERO background: el primer trending del día con backdrop
   const { data: trendingDay } = useTrending("day");
   const heroBackdrop = useMemo(() => {
     const first = trendingDay?.results?.find(r => r.backdrop_path);
     return first ? img.backdrop(first.backdrop_path, "original") : undefined;
   }, [trendingDay]);
 
-  // --- Trending section toggle (day/week)
   const [trendPeriod, setTrendPeriod] = useState<"day"|"week">("day");
   const { data: trending } = useTrending(trendPeriod);
 
-  // --- What's Popular: Movie / TV
   const [popularKind, setPopularKind] = useState<"movie"|"tv">("movie");
   const { data: popularMovies } = useDiscoverMovies({ sort_by: "popularity.desc", page: 1 });
   const { data: popularTV } = useDiscoverTV({ sort_by: "popularity.desc", page: 1 });
 
-  // --- Free to Watch: simplificado con discover por “vote_count.gte”
   const [freeKind, setFreeKind] = useState<"movie"|"tv">("movie");
   const { data: freeMovies } = useDiscoverMovies({ sort_by: "vote_count.desc", "vote_count.gte": 500 });
   const { data: freeTV } = useDiscoverTV({ sort_by: "vote_count.desc", "vote_count.gte": 500 });

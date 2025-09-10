@@ -13,7 +13,7 @@ export const RegisterForm = () => {
 
   const { mutateAsync, isPending, error, isSuccess } = useRegisterMutation({
     onSuccess: () => {
-      // tras registro + email verification enviado en tu hook
+   
       setTimeout(() => navigate("/movies/page/1", { replace: true }), 2000);
     },
   });

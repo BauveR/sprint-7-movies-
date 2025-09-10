@@ -90,6 +90,6 @@ describe("useForm", () => {
     });
 
     expect(result.current.formState).not.toBe(prev);
-    expect(prev.email).toBe(""); // objeto previo no mutado
+    expect(prev.email).toBe(""); 
   });
 });

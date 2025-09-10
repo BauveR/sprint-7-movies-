@@ -1,9 +1,7 @@
-// src/pages/MovieDetailPage.tsx
 import { useParams } from "react-router-dom";
 import { useMovie } from "@/features/movies/hooks";
 import { Cast } from "../components/Cast";
 
-// Extensiones opcionales que TMDB devuelve pero tu tipo aún no declara
 type MovieExtra = {
   backdrop_path?: string | null;
   genres?: { id: number; name: string }[];
@@ -11,7 +9,7 @@ type MovieExtra = {
 };
 
 function ScoreBadge({ value }: { value: number }) {
-  const pct = Math.round(value * 10); // vote_average 0-10 -> 0-100
+  const pct = Math.round(value * 10); 
   return (
     <div className="relative inline-flex items-center justify-center w-12 h-12 rounded-full bg-black/50 border border-white/20">
       <span className="text-sm font-bold text-white">{pct}<span className="text-[10px]">%</span></span>
@@ -56,7 +54,7 @@ export const MovieDetailPage = () => {
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      {/* HERO con backdrop y degradado */}
+
       <section
         className="relative"
         style={{
@@ -67,12 +65,10 @@ export const MovieDetailPage = () => {
           backgroundPosition: "center",
         }}
       >
-        {/* Overlay para degradar hacia abajo (como TMDB) */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/90" />
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-8 md:py-12">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10">
-            {/* Poster */}
             {poster && (
               <img
                 src={poster}
@@ -81,13 +77,11 @@ export const MovieDetailPage = () => {
               />
             )}
 
-            {/* Meta principal */}
             <div className="flex-1">
               <h1 className="text-3xl md:text-4xl font-extrabold">
                 {title} <span className="opacity-80 font-semibold">({year})</span>
               </h1>
 
-              {/* Subline: fecha • runtime • géneros */}
               <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-white/80">
                 {movie.release_date && (
                   <span>
@@ -113,7 +107,6 @@ export const MovieDetailPage = () => {
                 )}
               </div>
 
-              {/* Actions + Score */}
               <div className="mt-5 flex items-center gap-5">
                 <div className="flex items-center gap-3">
                   <ScoreBadge value={score} />
@@ -125,7 +118,6 @@ export const MovieDetailPage = () => {
 
                 <div className="h-6 w-px bg-white/20" />
 
-                {/* Acciones (placeholders visuales) */}
                 <div className="flex items-center gap-2">
                   <button className="p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10" title="Add to list">＋</button>
                   <button className="p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10" title="Mark as favorite">❤</button>
@@ -134,7 +126,6 @@ export const MovieDetailPage = () => {
                 </div>
               </div>
 
-              {/* Overview */}
               {movie.overview && (
                 <div className="mt-6">
                   <h2 className="text-xl font-bold">Overview</h2>
@@ -146,7 +137,6 @@ export const MovieDetailPage = () => {
         </div>
       </section>
 
-      {/* Cast */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-8">
         <h2 className="text-2xl font-bold mb-4">Top Billed Cast</h2>
         <div className="rounded-2xl bg-white/5 border border-white/10 p-4">

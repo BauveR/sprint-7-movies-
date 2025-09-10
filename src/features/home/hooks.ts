@@ -1,7 +1,6 @@
-// src/features/home/hooks.ts
 import { useQuery } from "@tanstack/react-query";
 import { useDataService } from "@/providers/DataServiceProvider";
-import type { MediaItem } from "@/shared/media";        // 👈 ruta correcta
+import type { MediaItem } from "@/shared/media";    
 import type { Paged } from "@/features/movies/service";
 
 export type QueryParams = Record<string, string | number | boolean | undefined>;
@@ -27,7 +26,6 @@ export const usePopularTV = (page = 1) => {
 export const useDiscoverMovies = (params?: QueryParams) => {
   const svc = useDataService();
   return useQuery<Paged<MediaItem>>({
-    // ⚠️ si 'params' es objeto, mejor serializar (ver tip 4)
     queryKey: ["discoverMovies", params],
     queryFn: () => svc.discoverMovies(params ?? {}),
     staleTime: 5 * 60 * 1000,
